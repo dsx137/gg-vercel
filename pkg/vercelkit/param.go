@@ -2,6 +2,7 @@ package vercelkit
 
 import (
 	"fmt"
+	"log"
 	"net/url"
 	"reflect"
 	"strconv"
@@ -73,9 +74,13 @@ func ReadParamsFromQuery[T any](queryParams url.Values) (*T, error) {
 					if v, err := strconv.ParseFloat(item, 64); err == nil {
 						slice.Index(j).SetFloat(v)
 					}
+				default:
+					log.Println("unsupported slice element type: ", elemKind)
 				}
 			}
 			f.Set(slice)
+		default:
+			log.Println("unsupported type: ", f.Kind())
 		}
 	}
 

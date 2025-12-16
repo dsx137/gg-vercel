@@ -56,6 +56,9 @@ func HttpResponse(w http.ResponseWriter, status int, message any) error {
 	if err != nil {
 		return err
 	}
-	w.Write([]byte(jsonResponse))
+	_, err = w.Write(jsonResponse)
+	if err != nil {
+		return err
+	}
 	return nil
 }

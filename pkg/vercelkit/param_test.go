@@ -4,7 +4,7 @@ import (
 	"net/url"
 	"testing"
 
-	"github.com/dsx137/go-vercel/pkg/vercelkit"
+	"github.com/dsx137/gg-vercel/pkg/vercelkit"
 )
 
 type TestParams struct {
